@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+	<style>
+		body{
+			font-family: 'Sigmar One', cursive;
+		}
+
+		.hot-key{
+			font-weight:bold;
+			color:blue;
+		}
+		.hot-key-help-text{
+			color:grey;
+		}
+	</style>
+</head>
+<body>
+	<h1><sup>the</sup>Mask Playground</h1>
+
+	<h2>Navigation</h2>
+	<ul>
+		<li>
+			<span class="hot-key">SHIFT + TAB</span> or <span class="hot-key">CTRL + LEFT</span> 
+			<span class="hot-key-help-text">Jump to previos section</span>
+		</li>
+		<li>
+			<span class="hot-key">TAB</span> or <span class="hot-key">CTRL + RIGHT</span> 
+			<span class="hot-key-help-text">Jump to next section</span>
+		</li>
+		<li>
+			<span class="hot-key">CTRL + ALT + d</span>  
+			<span class="hot-key-help-text">Select current section</span>
+		</li>
+		<li>
+			<span class="hot-key">CTRL + ALT + a</span>  
+			<span class="hot-key-help-text">Select all data</span>
+		</li>
+	</ul>
+	<input type="text" value="test">
+	<input type="text" id="txt-ip4">
+	<input type="text" id="txt-currency">
+	<script src="mask.js"></script>
+	<script type="text/javascript">
+		var ip4 = {
+			display : "<test>: {0}.{0}.{0}.{0} <IP>", 
+			value : "{000}.{000}.{000}.{000}", 
+			parts : "([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])",
+			test : "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",
+			allow : "^[0-9.,]+$",
+			navigation : true
+		};
+
+		var mask = new MSK("txt-ip4", ip4);
+		mask.val("122.168.1.1").format();
+	</script>
+</body>
+</html>
