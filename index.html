@@ -12,6 +12,7 @@
 			font-weight:bold;
 			color:blue;
 		}
+		
 		.hot-key-help-text{
 			color:grey;
 		}
@@ -42,7 +43,7 @@
 	<input type="text" value="test">
 	<input type="text" id="txt-ip4">
 	<input type="text" id="txt-currency">
-	<script src="mask.js"></script>
+	<script src="lib/index.js"></script>
 	<script type="text/javascript">
 		var ip4 = {
 			display : "<test>: {0}.{0}.{0}.{0} <IP>", 
@@ -53,8 +54,8 @@
 			navigation : true
 		};
 
-		var mask = new MSK("txt-ip4", ip4);
-		mask.val("122.168.1.1").format();
+		var mask = new window.Msk("txt-ip4", ip4);
+		mask.val("155.125.25.25").format();
 	</script>
 </body>
 </html>
