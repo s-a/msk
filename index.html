@@ -52,7 +52,7 @@
 			</div>
 		</div> 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12" id="remtest">
 				<h4>currency Demo</h4>
 				<pre><code id="code-currency"></code></pre>
 				<input type="text" id="txt-currency">  
@@ -67,11 +67,22 @@
 				<hr>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h4>unmasked Demo</h4>
+				<pre><code id="code-ip4"></code></pre> 
+				<input type="text" value="test">
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Spread the word</h1>
+				<div id="social-icons"></div> 
+			</div>
+		</div>
 	</div>
-	<input type="text" value="test">
 
-	<h1>Spread the word</h1>
-	<div id="social-icons"></div>
 
     <script type="text/javascript" src="look-at-this.min.js"></script>
 	<script type="text/javascript">
@@ -99,7 +110,7 @@
 
 		var demoCode = function(target, settings, value){
 			var result = "var settings = " + JSON.stringify(settings, null, "\t");
-			result += "var " + target + " = new window.Msk(\"" + target + "\", settings);\n"
+			result += "\n\nvar " + target + " = new window.Msk(\"" + target + "\", settings);\n"
 			result += "mask.val(\"" + value + "\").format();"
 			return result;
 		}
@@ -110,10 +121,16 @@
 			var mask = new window.Msk("txt-ip4", settings.ip4);
 			mask.val("155.125.25.25").format();
 
-
+			;
+			// Observe a specific DOM element:
+			observeDOM( window.document.getElementById("remtest") ,function(a){ 
+				console.log(a, 'dom changed');
+			});
 			window.document.getElementById("code-currency").innerHTML = demoCode("txt-currency", settings.currency, "1.99");
 			var mask2 = new window.Msk("txt-currency", settings.currency);
 			mask2.val("1.99").format();
+
+			window.document.getElementById("remtest").innerHTML = "";
 		});
 	</script>
 	<a href="https://github.com/s-a/msk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
